@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Educa-Psy | Bien-être & Éducation de qualité</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1e40af">
+    <link rel="apple-touch-icon" href="icon.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="script.js?v=15" defer></script>
+</head>
+<body class="font-sans bg-slate-50 text-slate-800">
+
+    <header class="fixed top-0 w-full z-[100] glass">
+        <nav class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2 cursor-pointer" onclick="showPage('accueil')" aria-label="Retour à l'accueil">
+                <span class="text-xl font-extrabold tracking-tighter text-blue-600">Educa-Psy</span>
+            </div>
+            
+            <div class="hidden lg:flex items-center gap-8 text-sm font-bold uppercase tracking-widest text-slate-500">
+                <button onclick="showPage('accueil')" data-key="nav_home" class="hover:text-indigo-600 transition">Accueil</button>
+                <button onclick="showPage('apropos')" data-key="nav_about" class="hover:text-indigo-600 transition">Présentation</button>
+                
+                <div class="relative group">
+                    <button class="flex items-center gap-1 group-hover:text-indigo-600 transition focus:outline-none">
+                        <span data-key="nav_act">Services</span>
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </button>
+                    <div class="dropdown-menu">
+                        <button onclick="showPage('services')">🧠 <span data-key="dom_1">Santé Mentale</span></button>
+                        <button onclick="showPage('services')">📚 <span data-key="dom_2">Éducation</span></button>
+                        <button onclick="showPage('services')">🤝 <span data-key="dom_3">Mentorat</span></button>
+                    </div>
+                </div>
+
+                <button onclick="showPage('actualites')" data-key="nav_news" class="hover:text-indigo-600 transition">Actualités</button>
+                <button onclick="showPage('contact')" data-key="nav_contact" class="hover:text-indigo-600 transition">Contact</button>
+
+                <div class="flex gap-3 border-l pl-6">
+                    <button onclick="setLanguage('ht')" class="hover:scale-125 transition">🇭🇹</button>
+                    <button onclick="setLanguage('fr')" class="hover:scale-125 transition">🇫🇷</button>
+                    <button onclick="setLanguage('en')" class="hover:scale-125 transition">🇬🇧</button>
+                </div>
+            </div>
+
+            <button class="lg:hidden p-2" onclick="toggleMobileMenu()" aria-label="Ouvrir le menu">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7" stroke-width="2" stroke-linecap="round"></path></svg>
+            </button>
+        </nav>
+    </header>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-[95] hidden flex-col justify-center items-center gap-8 text-2xl font-bold transition-all">
+        <button class="absolute top-6 right-6 text-4xl" onclick="toggleMobileMenu()">&times;</button>
+        <button onclick="showPage('accueil'); toggleMobileMenu()" data-key="nav_home">Accueil</button>
+        <button onclick="showPage('apropos'); toggleMobileMenu()" data-key="nav_about">Présentation</button>
+        <button onclick="showPage('services'); toggleMobileMenu()" data-key="nav_act">Services</button>
+        <button onclick="showPage('actualites'); toggleMobileMenu()" data-key="nav_news">Actualités</button>
+        <button onclick="showPage('contact'); toggleMobileMenu()" data-key="nav_contact">Contact</button>
+        <a href="https://linktr.ee/educapsyhaiti" target="_blank" class="text-lg mt-4 px-6 py-3 bg-indigo-600 text-white rounded-xl font-bold shadow-lg hover:bg-indigo-700 transition self-center">Plus d'informations</a>
+        <div class="flex gap-10 mt-6">
+            <button onclick="setLanguage('ht')">🇭🇹 HT</button>
+            <button onclick="setLanguage('fr')">🇫🇷 FR</button>
+            <button onclick="setLanguage('en')">🇬🇧 EN</button>
+        </div>
+    </div>
+
+    <main id="main-container">
+        <section id="page-accueil" class="page active pt-24 px-6 max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-center">
+                    <h1 class="text-2xl lg:text-3xl font-extrabold leading-tight" data-key="hero_title_main">Qui sommes-nous ?</h1>
+                    <p class="text-xl text-slate-600" data-key="hero_desc">La mission d’Educa-Psy est de rendre accessible les consultations psychologiques et éducatives pour les institutions ou organisations dans le pays</p>
+                    <button onclick="showPage('apropos')" class="px-8 py-4 bg-slate-900 text-white rounded-2xl font-bold shadow-lg hover:bg-slate-800 transition">Découvrir l'organisation</button>
+                    <a href="https://linktr.ee/educapsyhaiti" target="_blank" class="inline-block mt-4 px-8 py-4 bg-indigo-600 text-white rounded-2xl font-bold shadow-lg hover:bg-indigo-700 transition">Plus d'informations</a>
+                </div>
+                <div class="relative p-8 bg-indigo-50 rounded-3xl dynamic-statement">
+                    <h3 class="text-2xl font-bold text-center text-indigo-900 mb-4">Notre Mission</h3>
+                    <p class="text-lg text-slate-600 text-center mb-6" data-key="mission_statement">Accompagner nos partenaires et d'autres structures vers une éducation de qualité, le bien-être et le développement durable.</p>
+                    <p class="text-sm font-bold text-center text-indigo-800">#Respect #Solidarité #Responsabilité</p>
+                </div>
+            </div>
+
+            <div class="mt-24">
+                <div class="bg-white p-10 rounded-[2.5rem] shadow-xl border border-slate-100 text-center max-w-2xl mx-auto">
+                    <div id="donation-view">
+                        <h2 class="text-4xl font-extrabold mb-3" data-key="donate_title">Soutenez Notre Mission</h2>
+                        <p class="text-slate-600 mb-10" data-key="donate_desc">Votre don nous permet de continuer à agir.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                <button type="button" class="amount-btn bg-slate-200 text-slate-800 rounded-lg py-3 px-4 font-bold" data-amount="10">$10</button>
+                                <button type="button" class="amount-btn bg-slate-200 text-slate-800 rounded-lg py-3 px-4 font-bold" data-amount="25">$25</button>
+                                <button type="button" class="amount-btn bg-slate-200 text-slate-800 rounded-lg py-3 px-4 font-bold" data-amount="50">$50</button>
+                                <button type="button" class="amount-btn bg-slate-200 text-slate-800 rounded-lg py-3 px-4 font-bold" data-amount="100">$100</button>
+                            </div>
+                            <input type="number" id="custom-amount" placeholder="Ou un montant personnalisé" class="input-field w-full">
+                            <input type="text" id="donor-name" placeholder="Votre nom" class="input-field w-full">
+                            <input type="email" id="donor-email" placeholder="Votre email" class="input-field w-full">
+
+                            <div id="card-payment" class="mt-6 space-y-4">
+                                <input type="text" id="card-number" placeholder="Numéro de carte" class="input-field w-full">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <input type="text" id="card-expiry" placeholder="MM/AA" class="input-field w-full">
+                                    <input type="text" id="card-cvc" placeholder="CVC" class="input-field w-full">
+                                </div>
+                                <button id="submit-card-payment" class="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold shadow-lg hover:bg-indigo-700 transition">Faire un don</button>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-slate-400 mt-6" data-key="donate_secure">Les paiements sont traités de manière sécurisée.</p>
+                    </div>
+
+                    <div id="donation-success" class="hidden text-center p-6 bg-emerald-50 text-emerald-800 rounded-2xl">
+                        <div class="text-6xl mb-4">🎉</div>
+                        <p class="font-extrabold text-2xl mb-2" data-key="donate_success_title">Merci pour votre don !</p>
+                        <p data-key="donate_success_desc">Votre générosité fait la différence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-apropos" class="page pt-24 px-6 max-w-7xl mx-auto">
+            <h1 class="text-4xl font-extrabold text-center mb-12" data-key="nav_about">À propos de nous</h1>
+            <div class="swiper-container identity-book">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide slide-1"><h2 data-key="slide_status_title">Statut</h2><p data-key="slide_status_content">Organisation à but non lucratif</p></div>
+                    <div class="swiper-slide slide-2"><h2 data-key="slide_creation_date_title">Date de création</h2><p data-key="slide_creation_date_content">Décembre 2022</p></div>
+                    <div class="swiper-slide slide-3"><h2 data-key="slide_headquarters_title">Siège social</h2><p data-key="slide_headquarters_content">Grand-Goâve, Haïti</p></div>
+                    <div class="swiper-slide slide-1"><h2 data-key="slide_core_business_title">Cœur de métier</h2><p data-key="slide_core_business_content">Accompagnement psychosocial et éducatif</p></div>
+                    <div class="swiper-slide slide-2"><h2 data-key="slide_vision_mission_title">Vision et Mission</h2><p data-key="slide_vision_mission_content">Notre vision est de devenir une référence dans le domaine de l’accompagnement psychosocial et éducatif en Haïti. Notre mission est de promouvoir le bien-être et l’éducation de qualité pour tous.</p></div>
+                    <div class="swiper-slide slide-3"><h2 data-key="slide_school_environment_title">Milieu scolaire</h2><p data-key="slide_school_environment_content">Nous intervenons en milieu scolaire pour favoriser un environnement d’apprentissage sain et sécurisant.</p></div>
+                    <div class="swiper-slide slide-1"><h2 data-key="slide_womens_rights_title">Droits des femmes</h2><p data-key="slide_womens_rights_content">Nous nous engageons pour la promotion des droits des femmes et l’égalité des genres.</p></div>
+                    <div class="swiper-slide slide-2"><h2 data-key="slide_services_offered_title">Services offerts</h2><p data-key="slide_services_offered_content">Nous offrons des services d’accompagnement psychosocial, de formation, de mentorat et de conseil en éducation.</p></div>
+                    <div class="swiper-slide slide-3"><h2 data-key="slide_strengths_assets_title">Forces et atouts</h2><p data-key="slide_strengths_assets_content">Notre équipe est composée de professionnels qualifiés et expérimentés, passionnés par leur métier.</p></div>
+                    <div class="swiper-slide slide-1"><h2 data-key="slide_challenges_title">Défis</h2><p data-key="slide_challenges_content">Nous faisons face à des défis importants, notamment le manque de ressources financières et matérielles.</p></div>
+                    <div class="swiper-slide slide-2"><h2 data-key="slide_summary_title">En bref</h2><p data-key="slide_summary_content">Educa-Psy est une jeune organisation qui a pour ambition de contribuer au développement d’Haïti par l’éducation et le bien-être.</p></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="mt-12 bg-white p-8 rounded-2xl shadow-lg">
+                <h2 class="text-2xl font-bold mb-4" data-key="histoire_title">Histoire</h2>
+                <p data-key="histoire_content">Educa-Psy est fondée en 2022 avec le soutien de l’Agence Universitaire de la Francophonie, AUF Caraïbes, dans le cadre du programme RéSACE, Réseau Solidaire d’Accompagnement à la Création d’Entreprise. Depuis, elle a mené des activités dans le département du Sud, plus précisément aux Cayes, ainsi que dans les départements de l’Ouest et de l'Artibonite.</p>
+            </div>
+        </section>
+
+        <section id="page-services" class="page pt-24 px-6 max-w-7xl mx-auto">
+            <h1 class="text-4xl font-extrabold text-center mb-12" data-key="nav_act">Nos Services</h1>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4" data-key="dom_1">Santé Mentale</h2>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4" data-key="dom_2">Éducation</h2>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4" data-key="dom_3">Mentorat</h2>
+                </div>
+            </div>
+            <div class="mt-12 bg-white p-8 rounded-2xl shadow-lg">
+                <h2 class="text-2xl font-bold mb-4" data-key="slide_services_offered_title">Services offerts</h2>
+                <p data-key="slide_services_offered_content">Nous offrons des services d’accompagnement psychosocial, de formation, de mentorat et de conseil en éducation.</p>
+            </div>
+        </section>
+
+        <section id="page-actualites" class="page pt-24 px-6 max-w-7xl mx-auto">
+            <h1 class="text-4xl font-extrabold text-center mb-12" data-key="news_title">Actualités</h1>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <img src="https://icons.veryicon.com/png/o/miscellaneous/standard-general-linear-icon/counseling-3.png" alt="Image de l'article" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">La santé mentale des enfants en Haïti</h3>
+                        <p class="text-slate-600 mb-4">
+                            En Haïti, les besoins en santé mentale restent une urgence humanitaire. Entre l'insécurité permanente et les déplacements massifs forcés de la population (plus d'un million de personnes touchées), le traumatisme est devenu collectif.
+                            <span class="full-article hidden"> Les écoles ne sont pas seulement des lieux d'éducation et d'apprentissage, mais aussi des abris ou des espaces de protection. Face à ce climat d'insécurité et de peur, la mission d'Educa-Psy est d'accompagner les enfants victimes à travers des séances individuelles et en groupes pour un premier secour psychologique. ​Également, il faut soutenir les filles face aux risques de la VBG dans les camps. L'approche doit être holistique.</span>
+                        </p>
+                        <a href="#" class="font-bold text-indigo-600 hover:underline read-more">Lire la suite</a>
+                    </div>
+                </div>
+                <!-- Article 2 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <img src="https://icons.veryicon.com/png/o/education-technology/education-36/education-269.png" alt="Image de l'article" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Titre de l'article 2</h3>
+                        <p class="text-slate-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+                        <a href="#" class="font-bold text-indigo-600 hover:underline">Lire la suite</a>
+                    </div>
+                </div>
+                <!-- Article 3 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <img src="https://icons.veryicon.com/png/o/miscellaneous/standard-general-linear-icon/counseling-3.png" alt="Image de l'article" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Titre de l'article 3</h3>
+                        <p class="text-slate-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+                        <a href="#" class="font-bold text-indigo-600 hover:underline">Lire la suite</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-contact" class="page pt-24 px-6">
+            <div class="max-w-4xl mx-auto grid lg:grid-cols-2 gap-12">
+                <div class="bg-white p-10 rounded-[2.5rem] shadow-xl border border-slate-100">
+                    <h2 class="text-3xl font-bold mb-8 text-center" data-key="nav_contact">Contactez-nous</h2>
+                    <form id="contact-form" action="https://formspree.io/f/mnqevqjd" method="POST" class="space-y-4">
+                        <input type="hidden" name="_cc" value="educapsyhaiti@gmail.com">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://educa-psy.com/success">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="text" name="name" data-key="form_name" placeholder="Votre Nom" required class="input-field">
+                        <input type="email" name="email" data-key="form_email" placeholder="Votre Email" required class="input-field">
+                        <textarea name="message" data-key="form_message" placeholder="Votre Message" rows="4" required class="input-field"></textarea>
+                        <button type="submit" id="submit-btn" class="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold shadow-lg hover:bg-indigo-700 transition flex justify-center items-center gap-2" data-key="form_send">
+                            <span>Envoyer</span>
+                        </button>
+                    </form>
+                    <div id="success-msg" class="hidden text-center p-6 bg-emerald-50 text-emerald-700 rounded-2xl">
+                        <p class="font-bold" data-key="form_success_title">✓ Message envoyé avec succès !</p>
+                        <p data-key="form_success_desc">Nous vous contacterons bientôt. Un email de confirmation a été envoyé à votre adresse.</p>
+                    </div>
+                </div>
+                <div class="space-y-6 text-lg text-center">
+                    <h3 class="text-2xl font-bold">Nos Coordonnées</h3>
+                    <p class="flex items-center gap-3">
+                        <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <span>Grand-Goâve, Haïti</span>
+                    </p>
+                    <p class="flex items-center gap-3">
+                        <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <a href="mailto:educapsyhaiti@gmail.com" class="hover:underline">educapsyhaiti@gmail.com</a>
+                    </p>
+                    <p class="flex items-center gap-3">
+                        <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        <span>3685-9684 / 4633-6435</span>
+                    </p>
+                    <p class="flex items-center gap-3">
+                        <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m1.101-1.102l1.102-1.101a4 4 0 000-5.656l-4-4a4 4 0 00-5.656 0l-1.102 1.101"></path></svg>
+                        <a href="https://linktr.ee/educapsyhaiti" target="_blank" class="hover:underline">linktr.ee/educapsyhaiti</a>
+                    </p>
+                    <div class="mt-8">
+                        <button onclick="showPage('accueil')" class="inline-block px-8 py-4 bg-slate-900 text-white rounded-2xl font-bold shadow-lg hover:bg-slate-800 transition">Retour à l'accueil</button>
+                        <a href="https://linktr.ee/educapsyhaiti" target="_blank" class="inline-block mt-4 px-8 py-4 bg-indigo-600 text-white rounded-2xl font-bold shadow-lg hover:bg-indigo-700 transition">Plus d'informations</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-8 bg-white text-center">
+        <p class="text-slate-400 text-sm">© 2025 Educa-Psy | Respect • Solidarité • Responsabilité</p>
+        <div class="mt-4">
+            <a href="https://wa.me/50936859684" class="text-indigo-600 font-bold hover:underline">WhatsApp Direct : +509 3685-9684</a>
+        </div>
+    </footer>
+
+    <button id="scrollToTopBtn" class="fixed bottom-8 right-8 bg-indigo-600 text-white p-3 rounded-full shadow-lg hover:bg-indigo-700 transition hidden" aria-label="Remonter en haut">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+    </button>
+
+    <script>
+        document.querySelectorAll('.read-more').forEach(button => {
+            button.addEventListener('click', event => {
+                event.preventDefault();
+                const article = button.previousElementSibling;
+                const fullArticle = article.querySelector('.full-article');
+                fullArticle.classList.toggle('hidden');
+                button.textContent = fullArticle.classList.contains('hidden') ? 'Lire la suite' : 'Masquer';
+            });
+        });
+
+        // Donation form logic
+        const customAmountInput = document.getElementById('custom-amount');
+        const amountButtons = document.querySelectorAll('.amount-btn');
+        const cardPayment = document.getElementById('card-payment');
+        const submitCardPaymentBtn = document.getElementById('submit-card-payment');
+        const donationView = document.getElementById('donation-view');
+        const donationSuccess = document.getElementById('donation-success');
+
+        amountButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                amountButtons.forEach(btn => btn.classList.remove('bg-indigo-600', 'text-white'));
+                button.classList.add('bg-indigo-600', 'text-white');
+                customAmountInput.value = button.dataset.amount;
+            });
+        });
+        
+        submitCardPaymentBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            // Here you would integrate with a real payment processor like Stripe
+            console.log('Processing credit card payment...');
+            donationView.style.display = 'none
+
+
+
+', 'text-white');
+        });
+        
+        submitCardPaymentBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            // Here you would integrate with a real payment processor like Stripe
+            console.log('Processing credit card payment...');
+            donationView.style.display = 'none';
+            donationSuccess.style.display = 'block';
+        });
+
+// Scroll to top button
+const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+window.addEventListener('scroll', () => {
+if (window.pageYOffset > 200) {
+scrollToTopBtn.style.display = 'block';
+} else {
+scrollToTopBtn.style.display = 'none';
+}
+});
+scrollToTopBtn.addEventListener('click', () => {
+window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+</body>
+</html>
