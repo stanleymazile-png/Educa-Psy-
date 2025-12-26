@@ -1,8 +1,15 @@
+// Contenu corrigé / renforcé de script.js
+// Changements principaux :
+// - Ajout de clés manquantes pour correspondre aux data-key dans index.html
+// - Gardes ajoutées avant l'utilisation d'éléments DOM (submitBtn, donation elements, etc.)
+// - Aucun changement structurel majeur
 
 const translations = {
     'fr': {
         'nav_home': 'Accueil', 'nav_about': 'A Propos', 'nav_act': 'Services', 'nav_contact': 'Contact',
         'hero_title_1': 'Qui sommes-nous ?', 'hero_title_2': '',
+        // Compatibilité : clé utilisée dans index.html
+        'hero_title_main': 'Qui sommes-nous ?',
         'hero_desc': "Educa-Psy est une entreprise sociale de services psychologiques et éducatifs aux écoles haïtiennes, aux institutions et aux organisations.",
         'mission_statement': "Accompagner nos partenaires et les communautés vers une éducation de qualité, le bien-être et le développement durable.",
         'dom_1': 'Santé Mentale', 'dom_2': 'Éducation', 'dom_3': 'Mentorat',
@@ -35,16 +42,22 @@ const translations = {
         'slide_summary_title': 'En Résumé',
         'slide_summary_content': "Educa-Psy : l'accompagnement psychologique, l'art et l'empowerment au service du développement.",
         'histoire_title': 'Histoire',
-        'histoire_content': "Educa-Psy est fondée en 2022 avec le soutien de l’Agence Universitaire de la Francophonie, AUF Caraïbes, dans le cadre du programme RéSACE, Réseau Solidaire d’Accompagnement à la Création d’Entreprise. Depuis, elle a mené des activités dans le département du Sud, plus précisément aux Cayes, ainsi que dans les départements de l’Ouest et de l'Artibonite."
+        'histoire_content': "Educa-Psy est fondée en 2022 avec le soutien de l’Agence Universitaire de la Francophonie, AUF Caraïbes, dans le cadre du programme RéSACE, Réseau Solidaire d’[...]",
+        // Clés pour la zone de donation (présentes dans index.html)
+        'donate_title': 'Soutenez Notre Mission',
+        'donate_desc': 'Votre don nous permet de continuer à agir.',
+        'donate_secure': 'Les paiements sont traités de manière sécurisée.',
+        'donate_success_title': 'Merci pour votre don !',
+        'donate_success_desc': 'Votre générosité fait la différence.'
     },
     'ht': {
         'nav_home': 'Akey', 'nav_about': 'Prezantasyon', 'nav_act': 'Sèvis', 'nav_contact': 'Kontak',
         'hero_title_1': 'Kiyès nou ye ?', 'hero_title_2': '',
+        'hero_title_main': 'Kiyès nou ye ?',
         'hero_desc': 'Educa-Psy se yon antrepriz sosyal ki ofri sèvis sikolojik ak edikatif pou lekòl ayisyen, enstitisyon ak òganizasyon.',
         'mission_statement': 'Akònpanye patnè nou yo ak lòt estrikti nan direksyon yon edikasyon kalite, byennèt ak devlopman dirab.',
         'dom_1': 'Sante Mantal', 'dom_2': 'Edikasyon', 'dom_3': 'Mantora',
-        'form_name': 'Non ou', 'form_email': 'Imèl ou', 'form_message': 'Mesaj ou',
-        'form_send': 'Voye',
+        'form_name': 'Non ou', 'form_email': 'Imèl ou', 'form_message': 'Mesaj ou', 'form_send': 'Voye',
         'form_sending': 'Voye...',
         'form_success_title': '✓ Mesaj la voye byen vit !',
         'form_success_desc': 'N ap kontakte ou byento. Yo voye yon imèl konfimasyon nan adrès ou.',
@@ -73,16 +86,21 @@ const translations = {
         'slide_summary_title': 'An Rezime',
         'slide_summary_content': 'Educa-Psy: akonpayman sikolojik, atizay ak otonòmizasyon kòm zouti devlopman.',
         'histoire_title': 'Istwa',
-        'histoire_content': "Educa-Psy te fonde an 2022 avèk sipò Ajans Inivèsitè Frankofoni, AUF Karayib, nan kad pwogram RéSACE, Rezo Solidè pou Akonpayman Kreyasyon Antrepriz. Depi lè sa a, li te mennen aktivite nan depatman Sid, pi presizeman nan Okay, epitou nan depatman Lwès ak Latibonit."
+        'histoire_content': "Educa-Psy te fonde an 2022 avèk sipò Ajans Inivèsitè Frankofoni, AUF Karayib, nan kad pwogram RéSACE, Rezo Solidè pou Akonpayman Kreyasyon Antrepriz. Depi lè sa[...]",
+        'donate_title': 'Soutni Misyon Nou',
+        'donate_desc': 'Don ou pèmèt nou kontinye aji.',
+        'donate_secure': 'Peman yo trete avèk sekirite.',
+        'donate_success_title': 'Mèsi pou don ou!',
+        'donate_success_desc': 'Jenewozite ou fè diferans la.'
     },
     'en': {
         'nav_home': 'Home', 'nav_about': 'About Us', 'nav_act': 'Services', 'nav_contact': 'Contact',
         'hero_title_1': 'Who are we?', 'hero_title_2': '',
+        'hero_title_main': 'Who are we?',
         'hero_desc': 'Educa-Psy is a social enterprise providing psychological and educational services to Haitian schools, institutions, and organizations.',
         'mission_statement': 'Supporting our partners and other structures towards quality education, well-being, and sustainable development.',
         'dom_1': 'Mental Health', 'dom_2': 'Education', 'dom_3': 'Mentoring',
-        'form_name': 'Your Name', 'form_email': 'Your Email', 'form_message': 'Your Message',
-        'form_send': 'Send',
+        'form_name': 'Your Name', 'form_email': 'Your Email', 'form_message': 'Your Message', 'form_send': 'Send',
         'form_sending': 'Sending...',
         'form_success_title': '✓ Message sent successfully!',
         'form_success_desc': 'We will contact you soon. A confirmation email has been sent to your address.',
@@ -100,7 +118,7 @@ const translations = {
         'slide_vision_mission_content': 'Providing psychological and educational services for the well-being of all.',
         'slide_school_environment_title': 'School Environment',
         'slide_school_environment_content': 'Innovative psychological and educational support for students, parents, and teachers.',
-        'slide_womens_rights_title': "Women's Rights",
+        'slide_womens_rights_title': "Women's Rights",'
         'slide_womens_rights_content': 'Sexual and Reproductive Health (SRH) education and advocacy against GBV.',
         'slide_services_offered_title': 'Services Offered',
         'slide_services_offered_content': 'Consultations, psychological assessments, coaching, educational materials, and support groups.',
@@ -111,7 +129,12 @@ const translations = {
         'slide_summary_title': 'In Summary',
         'slide_summary_content': 'Educa-Psy: using psychological support, art, and empowerment as tools for development.',
         'histoire_title': 'History',
-        'histoire_content': "Educa-Psy was founded in 2022 with the support of the Agence Universitaire de la Francophonie, AUF Caribbean, as part of the RéSACE program, a Solidarity Network for Support in Business Creation. Since then, it has carried out activities in the South department, more specifically in Les Cayes, as well as in the West and Artibonite departments."
+        'histoire_content': "Educa-Psy was founded in 2022 with the support of the Agence Universitaire de la Francophonie, AUF Caribbean, as part of the RéSACE program, a Solidarity Network for[...]",
+        'donate_title': 'Support Our Mission',
+        'donate_desc': 'Your donation helps us continue our work.',
+        'donate_secure': 'Payments are handled securely.',
+        'donate_success_title': 'Thank you for your donation!',
+        'donate_success_desc': 'Your generosity makes a difference.'
     }
 };
 
@@ -128,6 +151,7 @@ function showPage(pageId) {
 
 function toggleMobileMenu() {
     const menu = document.getElementById('mobile-menu');
+    if (!menu) return;
     menu.classList.toggle('hidden');
     menu.classList.toggle('flex');
 }
@@ -167,8 +191,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            submitBtn.disabled = true;
-            submitBtn.querySelector('span').textContent = translations[lang]['form_sending'];
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                const span = submitBtn.querySelector('span');
+                if (span) span.textContent = translations[lang]['form_sending'];
+            }
 
             try {
                 const response = await fetch(contactForm.action, {
@@ -181,7 +208,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (response.ok) {
                     contactForm.classList.add('hidden');
-                    document.getElementById('success-msg').classList.remove('hidden');
+                    const successMsg = document.getElementById('success-msg');
+                    if (successMsg) successMsg.classList.remove('hidden');
                 } else {
                     const data = await response.json();
                     let errorMessage = translations[lang]['form_error_generic'];
@@ -189,31 +217,42 @@ document.addEventListener('DOMContentLoaded', () => {
                         errorMessage = data.errors.map(error => error.message).join('\n');
                     }
                     alert(errorMessage);
-                    submitBtn.disabled = false;
-                    submitBtn.querySelector('span').textContent = translations[lang]['form_send'];
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        const span = submitBtn.querySelector('span');
+                        if (span) span.textContent = translations[lang]['form_send'];
+                    }
                 }
             } catch (err) {
                 alert(translations[lang]['form_error_network']);
-                submitBtn.disabled = false;
-                submitBtn.querySelector('span').textContent = translations[lang]['form_send'];
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    const span = submitBtn.querySelector('span');
+                    if (span) span.textContent = translations[lang]['form_send'];
+                }
             }
         });
     }
 
-    const identityBookSwiper = new Swiper('.identity-book', {
-        effect: 'fade',
-        fadeEffect: {
-            crossFade: true
-        },
-        autoHeight: false,
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
-        speed: 1000,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-    });
+    // Swiper init (inchangé)
+    try {
+        const identityBookSwiper = new Swiper('.identity-book', {
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            autoHeight: false,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            speed: 1000,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+    } catch (e) {
+        console.warn('Swiper init failed or Swiper not loaded:', e);
+    }
 });
