@@ -4,7 +4,7 @@ const translations = {
         'nav_home': 'Accueil', 'nav_about': 'A Propos', 'nav_act': 'Services', 'nav_contact': 'Contact',
         'hero_title_1': 'Qui sommes-nous ?', 'hero_title_2': '',
         'hero_desc': "Educa-Psy est une entreprise sociale de services psychologiques et éducatifs aux écoles haïtiennes, aux institutions et aux organisations.",
-        'mission_statement': "Accompagner nos partenaires et d'autres structures vers une éducation de qualité, le bien-être et le développement durable.",
+        'mission_statement': "Accompagner nos partenaires et les communautés vers une éducation de qualité, le bien-être et le développement durable.",
         'dom_1': 'Santé Mentale', 'dom_2': 'Éducation', 'dom_3': 'Mentorat',
         'form_name': 'Votre Nom', 'form_email': 'Votre Email', 'form_message': 'Votre Message', 'form_send': 'Envoyer',
         'form_sending': 'Envoi en cours...',
